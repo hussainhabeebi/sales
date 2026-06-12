@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI for Sales Mastery — 14-Day Training | Aiingo Technologies</title>
+  <meta name="description" content="Master AI-powered sales automation in 14 days. Build real pipelines with n8n, Apollo, WhatsApp & more. By Aiingo Technologies — 5 years of AI for Sales expertise." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue-dark:   #1a4a6e;
+      --blue-mid:    #2176ae;
+      --blue-light:  #5bb3d6;
+      --blue-pale:   #cce9f5;
+      --blue-bg:     #eaf5fb;
+      --accent:      #0ea5e9;
+      --accent-glow: #38bdf8;
+      --teal:        #0d9488;
+      --gold:        #f59e0b;
+      --white:       #ffffff;
+      --gray-50:     #f8fafc;
+      --gray-100:    #f1f5f9;
+      --gray-200:    #e2e8f0;
+      --gray-400:    #94a3b8;
+      --gray-600:    #475569;
+      --gray-800:    #1e293b;
+      --gray-900:    #0f172a;
+      --radius-sm:   8px;
+      --radius-md:   14px;
+      --radius-lg:   22px;
+      --radius-xl:   32px;
+      --shadow-sm:   0 2px 8px rgba(0,0,0,.06);
+      --shadow-md:   0 8px 30px rgba(0,0,0,.10);
+      --shadow-lg:   0 20px 60px rgba(0,0,0,.14);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--gray-800);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    h1,h2,h3,h4 { font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.2; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; }
+
+    /* ── Utility ── */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 90px 0; }
+    .section-sm { padding: 60px 0; }
+    .text-center { text-align: center; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--blue-pale); color: var(--blue-dark);
+      font-size: 13px; font-weight: 600; letter-spacing: .4px;
+      padding: 6px 14px; border-radius: 50px;
+      border: 1px solid rgba(33,118,174,.18);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, var(--blue-mid), var(--accent-glow));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-weight: 700; font-size: 15px; border-radius: 50px;
+      padding: 14px 30px; cursor: pointer; border: none;
+      transition: all .22s ease; white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      color: #fff; box-shadow: 0 6px 24px rgba(37,211,102,.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(37,211,102,.45); }
+    .btn-secondary {
+      background: linear-gradient(135deg, var(--blue-mid) 0%, var(--blue-dark) 100%);
+      color: #fff; box-shadow: 0 6px 24px rgba(33,118,174,.3);
+    }
+    .btn-secondary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(33,118,174,.42); }
+    .btn-outline {
+      background: transparent; color: var(--blue-mid);
+      border: 2px solid var(--blue-mid);
+    }
+    .btn-outline:hover { background: var(--blue-mid); color: #fff; }
+    .btn-pdf {
+      background: linear-gradient(135deg, var(--gold) 0%, #d97706 100%);
+      color: #fff; box-shadow: 0 6px 24px rgba(245,158,11,.3);
+    }
+    .btn-pdf:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(245,158,11,.42); }
+    .btn-lg { padding: 18px 40px; font-size: 17px; }
+
+    /* ── Sticky Nav ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 14px 0;
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1120px; margin: 0 auto; padding: 0 24px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo-text { font-size: 18px; font-weight: 800; color: var(--blue-dark); }
+    .nav-logo-sub { font-size: 11px; color: var(--gray-400); font-weight: 500; letter-spacing: .3px; line-height: 1; }
+    .nav-ctas { display: flex; gap: 10px; align-items: center; }
+    @media (max-width: 600px) { .nav-ctas .btn-outline { display: none; } }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(160deg, var(--gray-900) 0%, var(--blue-dark) 55%, #0e4d7a 100%);
+      color: #fff; padding: 90px 0 80px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(91,179,214,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .hero-eyebrow { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+      color: #fff; font-size: 12px; font-weight: 600; letter-spacing: .5px;
+      padding: 5px 12px; border-radius: 50px;
+    }
+    .hero h1 { font-size: clamp(32px, 5vw, 54px); font-weight: 900; margin-bottom: 20px; }
+    .hero h1 span { color: var(--accent-glow); }
+    .hero-sub { font-size: 18px; color: rgba(255,255,255,.75); margin-bottom: 36px; max-width: 480px; }
+    .hero-stats {
+      display: flex; gap: 28px; flex-wrap: wrap; margin-bottom: 36px;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat-num { font-size: 28px; font-weight: 900; color: var(--accent-glow); }
+    .hero-stat-lbl { font-size: 12px; color: rgba(255,255,255,.6); font-weight: 500; }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* Hero visual */
+    .hero-visual {
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .hero-card-stack { position: relative; width: 100%; max-width: 420px; }
+    .pipeline-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: var(--radius-lg);
+      padding: 22px 24px;
+      backdrop-filter: blur(12px);
+    }
+    .pipeline-title { font-size: 13px; font-weight: 700; color: rgba(255,255,255,.5); letter-spacing: .6px; text-transform: uppercase; margin-bottom: 16px; }
+    .pipeline-steps { display: flex; flex-direction: column; gap: 10px; }
+    .pipeline-step {
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(255,255,255,.06); border-radius: var(--radius-sm);
+      padding: 10px 14px;
+    }
+    .step-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .step-text { flex: 1; }
+    .step-name { font-size: 13px; font-weight: 600; color: #fff; }
+    .step-tool { font-size: 11px; color: rgba(255,255,255,.45); }
+    .step-status {
+      font-size: 11px; font-weight: 700; padding: 3px 8px;
+      border-radius: 50px;
+    }
+    .status-live { background: rgba(16,185,129,.2); color: #34d399; }
+    .status-build { background: rgba(245,158,11,.2); color: #fbbf24; }
+    .float-badge {
+      position: absolute; top: -14px; right: -14px;
+      background: linear-gradient(135deg, var(--gold), #d97706);
+      color: #fff; font-size: 12px; font-weight: 800;
+      padding: 8px 16px; border-radius: 50px;
+      box-shadow: 0 6px 20px rgba(245,158,11,.4);
+    }
+    @media (max-width: 860px) { .hero-visual { display: none; } }
+
+    /* ── Trust Bar ── */
+    .trust-bar {
+      background: var(--gray-50); border-bottom: 1px solid var(--gray-200); padding: 24px 0;
+    }
+    .trust-items {
+      display: flex; align-items: center; justify-content: center;
+      gap: 40px; flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 600; color: var(--gray-600);
+    }
+    .trust-item svg { color: var(--blue-mid); }
+
+    /* ── Program Overview ── */
+    .overview-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 50px; }
+    @media (max-width: 860px) { .overview-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .overview-grid { grid-template-columns: 1fr; } }
+    .overview-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md); padding: 28px 24px;
+      transition: all .22s ease;
+    }
+    .overview-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); border-color: var(--blue-pale); }
+    .overview-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--blue-bg); display: flex; align-items: center;
+      justify-content: center; font-size: 22px; margin-bottom: 14px;
+    }
+    .overview-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .overview-card p { font-size: 14px; color: var(--gray-600); line-height: 1.55; }
+
+    /* ── Phase Timeline ── */
+    .phases-bg { background: var(--gray-50); }
+    .phase-list { display: flex; flex-direction: column; gap: 0; margin-top: 50px; }
+    .phase-block {
+      display: grid; grid-template-columns: 160px 1fr;
+      gap: 0; border-radius: var(--radius-lg);
+      overflow: hidden; margin-bottom: 16px;
+      box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200);
+    }
+    @media (max-width: 700px) { .phase-block { grid-template-columns: 1fr; } }
+    .phase-label {
+      padding: 28px 20px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; gap: 6px;
+    }
+    .phase-num { font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; opacity: .7; }
+    .phase-title-short { font-size: 14px; font-weight: 800; }
+    .phase-days { font-size: 12px; opacity: .8; font-weight: 600; }
+    .phase-content { background: var(--white); padding: 24px 28px; }
+    .phase-content h3 { font-size: 18px; font-weight: 800; margin-bottom: 12px; color: var(--gray-900); }
+    .day-list { display: flex; flex-direction: column; gap: 10px; }
+    .day-item {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 12px 16px; border-radius: var(--radius-sm);
+      background: var(--gray-50); border-left: 3px solid transparent;
+      transition: all .18s ease;
+    }
+    .day-item:hover { background: var(--blue-bg); border-left-color: var(--blue-mid); }
+    .day-num {
+      font-size: 11px; font-weight: 800; letter-spacing: .4px;
+      color: var(--blue-mid); background: var(--blue-pale);
+      padding: 3px 8px; border-radius: 50px; white-space: nowrap;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .day-info h4 { font-size: 14px; font-weight: 700; margin-bottom: 3px; color: var(--gray-900); }
+    .day-info p { font-size: 13px; color: var(--gray-600); line-height: 1.5; }
+    .day-tools { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+    .tool-chip {
+      font-size: 11px; font-weight: 600; padding: 2px 8px;
+      border-radius: 50px; background: var(--blue-pale); color: var(--blue-dark);
+    }
+
+    /* Phase colors */
+    .phase-1 .phase-label { background: linear-gradient(160deg,#1a4a6e,#2176ae); color:#fff; }
+    .phase-2 .phase-label { background: linear-gradient(160deg,#0e7490,#0891b2); color:#fff; }
+    .phase-3 .phase-label { background: linear-gradient(160deg,#0d9488,#14b8a6); color:#fff; }
+    .phase-4 .phase-label { background: linear-gradient(160deg,#7c3aed,#8b5cf6); color:#fff; }
+    .phase-5 .phase-label { background: linear-gradient(160deg,#b45309,#d97706); color:#fff; }
+    .phase-6 .phase-label { background: linear-gradient(160deg,#be185d,#ec4899); color:#fff; }
+    .phase-7 .phase-label { background: linear-gradient(160deg,#15803d,#16a34a); color:#fff; }
+
+    /* ── Tools Stack ── */
+    .tools-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(130px,1fr));
+      gap: 14px; margin-top: 48px;
+    }
+    .tool-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md); padding: 20px 16px;
+      text-align: center; transition: all .22s ease;
+    }
+    .tool-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); border-color: var(--blue-light); }
+    .tool-emoji { font-size: 28px; margin-bottom: 8px; }
+    .tool-name { font-size: 13px; font-weight: 700; color: var(--gray-800); }
+    .tool-cat { font-size: 11px; color: var(--gray-400); margin-top: 2px; }
+
+    /* ── Outcomes ── */
+    .outcomes-bg { background: linear-gradient(160deg, var(--blue-dark) 0%, var(--gray-900) 100%); color: #fff; }
+    .outcomes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 50px; }
+    @media (max-width: 700px) { .outcomes-grid { grid-template-columns: 1fr; } }
+    .outcome-item {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--radius-md); padding: 20px 22px;
+    }
+    .outcome-check {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: linear-gradient(135deg, #34d399, #059669);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .outcome-item h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .outcome-item p { font-size: 13px; color: rgba(255,255,255,.65); line-height: 1.5; }
+
+    /* ── Who is this for ── */
+    .for-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 48px; }
+    @media (max-width: 860px) { .for-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .for-grid { grid-template-columns: 1fr; } }
+    .for-card {
+      border-radius: var(--radius-md); padding: 30px 24px;
+      background: var(--blue-bg); border: 1px solid var(--blue-pale);
+      transition: all .22s ease;
+    }
+    .for-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .for-icon { font-size: 36px; margin-bottom: 14px; }
+    .for-card h3 { font-size: 16px; font-weight: 800; margin-bottom: 8px; color: var(--blue-dark); }
+    .for-card p { font-size: 14px; color: var(--gray-600); line-height: 1.55; }
+
+    /* ── Trainer ── */
+    .trainer-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius-xl); padding: 50px;
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 48px; align-items: center; margin-top: 50px;
+      box-shadow: var(--shadow-md);
+    }
+    @media (max-width: 760px) { .trainer-card { grid-template-columns: 1fr; text-align: center; padding: 36px 28px; } }
+    .trainer-logo-wrap {
+      width: 160px; height: 160px; flex-shrink: 0;
+    }
+    .trainer-info h2 { font-size: 28px; font-weight: 900; margin-bottom: 6px; }
+    .trainer-exp {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--blue-pale); color: var(--blue-dark);
+      font-size: 13px; font-weight: 700; padding: 5px 14px;
+      border-radius: 50px; margin-bottom: 18px;
+    }
+    .trainer-info p { font-size: 15px; color: var(--gray-600); line-height: 1.65; margin-bottom: 20px; }
+    .trainer-stats { display: flex; gap: 36px; flex-wrap: wrap; }
+    @media (max-width: 760px) { .trainer-stats { justify-content: center; } }
+    .t-stat-num { font-size: 26px; font-weight: 900; color: var(--blue-mid); }
+    .t-stat-lbl { font-size: 12px; color: var(--gray-400); font-weight: 500; }
+
+    /* ── PDF Section ── */
+    .pdf-section { background: var(--gray-50); }
+    .pdf-card {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, #0e4d7a 100%);
+      border-radius: var(--radius-xl); padding: 60px 50px;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 40px; align-items: center; color: #fff;
+      position: relative; overflow: hidden;
+    }
+    @media (max-width: 700px) { .pdf-card { grid-template-columns: 1fr; text-align: center; padding: 40px 28px; } }
+    .pdf-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(91,179,214,.18) 0%, transparent 70%);
+    }
+    .pdf-card h2 { font-size: 28px; font-weight: 900; margin-bottom: 10px; }
+    .pdf-card p { font-size: 16px; color: rgba(255,255,255,.75); margin-bottom: 6px; }
+    .pdf-includes { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+    .pdf-include-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; color: rgba(255,255,255,.85);
+    }
+    .pdf-visual {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pdf-icon-big {
+      width: 120px; height: 150px; background: rgba(255,255,255,.12);
+      border: 2px solid rgba(255,255,255,.2); border-radius: 12px;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: 8px;
+    }
+    .pdf-icon-big span { font-size: 40px; }
+    .pdf-icon-big small {
+      font-size: 14px; font-weight: 800; color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    /* ── FAQ ── */
+    .faq-list { max-width: 780px; margin: 50px auto 0; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md); overflow: hidden;
+    }
+    .faq-q {
+      width: 100%; text-align: left; padding: 20px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 15px; font-weight: 700; color: var(--gray-900);
+      background: none; border: none; cursor: pointer; gap: 12px;
+    }
+    .faq-q:hover { background: var(--gray-50); }
+    .faq-chevron { flex-shrink: 0; transition: transform .22s ease; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden; transition: max-height .3s ease;
+      font-size: 14px; color: var(--gray-600); line-height: 1.7;
+      padding: 0 24px;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 24px 20px; }
+
+    /* ── CTA Final ── */
+    .cta-final {
+      background: linear-gradient(160deg, var(--gray-900), var(--blue-dark));
+      color: #fff; text-align: center; padding: 100px 0;
+      position: relative; overflow: hidden;
+    }
+    .cta-final::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 60%, rgba(91,179,214,.15) 0%, transparent 70%);
+    }
+    .cta-final h2 { font-size: clamp(28px, 4vw, 46px); font-weight: 900; margin-bottom: 16px; }
+    .cta-final p { font-size: 18px; color: rgba(255,255,255,.7); margin-bottom: 40px; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--gray-900); color: rgba(255,255,255,.5);
+      padding: 40px 0; text-align: center; font-size: 13px;
+    }
+    footer a { color: var(--blue-light); }
+    .footer-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 14px; }
+
+    /* ── Floating WA ── */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 28px rgba(37,211,102,.45);
+      cursor: pointer; transition: all .22s ease;
+      border: none;
+    }
+    .wa-float:hover { transform: scale(1.12); box-shadow: 0 12px 36px rgba(37,211,102,.55); }
+
+    /* ── Section headers ── */
+    .section-eyebrow { margin-bottom: 12px; }
+    .section-title { font-size: clamp(26px, 4vw, 40px); font-weight: 900; margin-bottom: 16px; }
+    .section-sub { font-size: 17px; color: var(--gray-600); max-width: 620px; }
+    .section-sub-white { font-size: 17px; color: rgba(255,255,255,.7); max-width: 620px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      .section { padding: 60px 0; }
+      .btn-lg { padding: 15px 28px; font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <!-- Aiingo Logo SVG -->
+      <svg width="44" height="44" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="60" r="58" fill="#4a9ec4" stroke="#2176ae" stroke-width="2"/>
+        <circle cx="60" cy="60" r="44" fill="#d4eef8"/>
+        <!-- Curved top text -->
+        <path id="topArc" d="M 20,60 A 40,40 0 0,1 100,60" fill="none"/>
+        <text font-size="9" font-weight="800" fill="#1a4a6e" font-family="Arial,sans-serif" letter-spacing="1.8">
+          <textPath href="#topArc" startOffset="8%">AIINGO TECHNOLOGIES</textPath>
+        </text>
+        <!-- Curved bottom text -->
+        <path id="botArc" d="M 18,65 A 42,42 0 0,0 102,65" fill="none"/>
+        <text font-size="8" font-weight="700" fill="#2176ae" font-family="Arial,sans-serif" letter-spacing="1.2">
+          <textPath href="#botArc" startOffset="2%">REDEFINING BUSINESS WITH AI</textPath>
+        </text>
+        <!-- Center aiingo wordmark -->
+        <text x="60" y="57" text-anchor="middle" font-size="15" font-weight="900" fill="#1a4a6e" font-family="Arial,sans-serif">aiingo</text>
+        <!-- Small fish/robot dot on i -->
+        <circle cx="93" cy="51" r="4" fill="#2176ae"/>
+        <circle cx="93" cy="51" r="2.5" fill="#5bb3d6"/>
+        <!-- Dots -->
+        <circle cx="16" cy="62" r="3" fill="#1a4a6e"/>
+        <circle cx="104" cy="62" r="3" fill="#1a4a6e"/>
+      </svg>
+      <div>
+        <div class="nav-logo-text">Aiingo Technologies</div>
+        <div class="nav-logo-sub">Redefining Business with AI</div>
+      </div>
+    </a>
+    <div class="nav-ctas">
+      <a href="#course-plan" class="btn btn-outline" style="padding:10px 20px;font-size:13px;">
+        ⬇ Course Plan PDF
+      </a>
+      <a href="https://wa.me/919207444435?text=Hi%20Aiingo!%20I'm%20interested%20in%20the%2014-Day%20AI%20for%20Sales%20Training%20Program." target="_blank" rel="noopener" class="btn btn-primary" style="padding:10px 20px;font-size:13px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">
+          <span class="hero-badge">🎓 Live Training Program</span>
+          <span class="hero-badge">⚡ 14 Days · Build-Heavy</span>
+        </div>
+        <h1>Master <span>AI-Powered Sales</span> in 14 Days</h1>
+        <p class="hero-sub">Go from zero to a fully automated sales pipeline — lead generation, enrichment, signals, outreach, follow-up, and booking — all wired together with live builds, not slides.</p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">14</div>
+            <div class="hero-stat-lbl">Training Days</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">7</div>
+            <div class="hero-stat-lbl">Tool Categories</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">5+</div>
+            <div class="hero-stat-lbl">Years Expertise</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">1</div>
+            <div class="hero-stat-lbl">Live Pipeline Built</div>
+          </div>
+        </div>
+        <div class="hero-ctas">
+          <a href="https://wa.me/919207444435?text=Hi%20Aiingo!%20I'm%20interested%20in%20the%2014-Day%20AI%20for%20Sales%20Training%20Program.%20Please%20share%20details." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enroll via WhatsApp
+          </a>
+          <a href="#course-plan" class="btn btn-pdf btn-lg">
+            ⬇ Download Course Plan
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card-stack">
+          <span class="float-badge">🔥 Build-Heavy Program</span>
+          <div class="pipeline-card">
+            <div class="pipeline-title">Live Pipeline You'll Build</div>
+            <div class="pipeline-steps">
+              <div class="pipeline-step">
+                <div class="step-icon" style="background:rgba(33,118,174,.2);">🎯</div>
+                <div class="step-text">
+                  <div class="step-name">Lead Generation</div>
+                  <div class="step-tool">Apollo · Apify · Lusha</div>
+                </div>
+                <span class="step-status status-live">Live</span>
+              </div>
+              <div class="pipeline-step">
+                <div class="step-icon" style="background:rgba(13,148,136,.2);">📊</div>
+                <div class="step-text">
+                  <div class="step-name">Signal Scoring</div>
+                  <div class="step-tool">News API · NocoDB</div>
+                </div>
+                <span class="step-status status-live">Live</span>
+              </div>
+              <div class="pipeline-step">
+                <div class="step-icon" style="background:rgba(124,58,237,.2);">📱</div>
+                <div class="step-text">
+                  <div class="step-name">Multichannel Outreach</div>
+                  <div class="step-tool">WhatsApp · Email</div>
+                </div>
+                <span class="step-status status-build">Build</span>
+              </div>
+              <div class="pipeline-step">
+                <div class="step-icon" style="background:rgba(180,83,9,.2);">🤖</div>
+                <div class="step-text">
+                  <div class="step-name">AI Follow-up & Booking</div>
+                  <div class="step-tool">n8n · Chatwoot</div>
+                </div>
+                <span class="step-status status-build">Build</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ TRUST BAR ═══════════════ -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-items">
+      <div class="trust-item">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        5+ Years AI for Sales Expertise
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Real Pipeline, Not Theory
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        n8n · Apollo · WhatsApp · AI
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        UAE · India · Global Markets
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Compliance-First Training
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ OVERVIEW ═══════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow"><span class="badge">📋 What You'll Build</span></div>
+      <h2 class="section-title">A <span class="gradient-text">Complete Revenue Machine</span> in 14 Days</h2>
+      <p class="section-sub" style="margin:0 auto;">Not a folder of notes — a working, automated sales pipeline you own and operate after Day 14.</p>
+    </div>
+    <div class="overview-grid">
+      <div class="overview-card">
+        <div class="overview-icon">🎯</div>
+        <h3>ICP-Matched Lead Lists</h3>
+        <p>AI-defined buyer personas driving Apollo, Apify, and Lusha searches — with waterfall enrichment for 90%+ contact coverage.</p>
+      </div>
+      <div class="overview-card">
+        <div class="overview-icon">⚡</div>
+        <h3>Signal-Based Prioritization</h3>
+        <p>Monitor funding, expansion, and hiring news to reach prospects at exactly the right moment — not just when they fit the ICP.</p>
+      </div>
+      <div class="overview-card">
+        <div class="overview-icon">📊</div>
+        <h3>Live Sales Dashboard</h3>
+        <p>One screen showing lead volume, enrichment hit-rate, outreach stats, reply rates, and meetings booked — updated automatically.</p>
+      </div>
+      <div class="overview-card">
+        <div class="overview-icon">📱</div>
+        <h3>WhatsApp + Email Outreach</h3>
+        <p>Meta-compliant WhatsApp flows and inbox-landing email sequences with AI-personalized first lines — at volume, without sounding templated.</p>
+      </div>
+      <div class="overview-card">
+        <div class="overview-icon">🤖</div>
+        <h3>AI Follow-up Engine</h3>
+        <p>Multi-step sequences that branch on reply/no-reply/bounce, stop instantly when someone responds, and hand off hot leads to humans.</p>
+      </div>
+      <div class="overview-card">
+        <div class="overview-icon">📅</div>
+        <h3>Inbound Booking Agent</h3>
+        <p>An AI agent that qualifies replies, answers objections, and books meetings — or routes hot leads to your team with full context.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PHASE TIMELINE ═══════════════ -->
+<section class="section phases-bg">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow"><span class="badge">📅 14-Day Curriculum</span></div>
+      <h2 class="section-title">The Full <span class="gradient-text">Training Roadmap</span></h2>
+      <p class="section-sub" style="margin:0 auto;">Seven phases, each building on the last — from blank canvas to a live revenue pipeline.</p>
+    </div>
+
+    <div class="phase-list">
+
+      <!-- Phase 1 -->
+      <div class="phase-block phase-1">
+        <div class="phase-label">
+          <span class="phase-num">Phase 1</span>
+          <span class="phase-title-short">Foundations</span>
+          <span class="phase-days">Days 1–2</span>
+        </div>
+        <div class="phase-content">
+          <h3>Foundations & Stack Setup</h3>
+          <div class="day-list">
+            <div class="day-item">
+              <span class="day-num">Day 1</span>
+              <div class="day-info">
+                <h4>AI for Sales + Prompting Fundamentals</h4>
+                <p>What LLMs do well and badly in a sales context. Map the full pipeline. Define your ICP and 2–3 buyer personas using AI — every search filter downstream depends on this.</p>
+                <div class="day-tools"><span class="tool-chip">LLMs</span><span class="tool-chip">Prompt Engineering</span><span class="tool-chip">ICP Design</span></div>
+              </div>
+            </div>
+            <div class="day-item">
+              <span class="day-num">Day 2</span>
+              <div class="day-info">
+                <h4>n8n Core + NocoDB Backbone</h4>
+                <p>Canvas, nodes, triggers vs actions, credentials, expressions, and JSON. Set up NocoDB as the master lead database (Leads, Companies, Activities, Daily_Stats). Build your first webhook-to-CRM workflow.</p>
+                <div class="day-tools"><span class="tool-chip">n8n</span><span class="tool-chip">NocoDB</span><span class="tool-chip">Webhooks</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="phase-block phase-2">
+        <div class="phase-label">
+          <span class="phase-num">Phase 2</span>
+          <span class="phase-title-short">Lead Agents</span>
+          <span class="phase-days">Days 3–5</span>
+        </div>
+        <div class="phase-content">
+          <h3>Lead Generation Agents</h3>
+          <div class="day-list">
+            <div class="day-item">
+              <span class="day-num">Day 3</span>
+              <div class="day-info">
+                <h4>Apollo — The Database Play</h4>
+                <p>B2B search by title, industry, headcount, geography, and tech stack. Building targeted lists from your ICP, pulling verified emails, and exporting via API into n8n → NocoDB. Search-credit economics covered.</p>
+                <div class="day-tools"><span class="tool-chip">Apollo</span><span class="tool-chip">n8n API</span><span class="tool-chip">NocoDB</span></div>
+              </div>
+            </div>
+            <div class="day-item">
+              <span class="day-num">Day 4</span>
+              <div class="day-info">
+                <h4>Apify — The Scraping Play</h4>
+                <p>Actors as agents: Google Maps scraper, website/contact scrapers, LinkedIn-style actors. Running an actor from inside n8n, handling pagination, and structuring messy output into clean DB rows. ToS/legal segment included.</p>
+                <div class="day-tools"><span class="tool-chip">Apify</span><span class="tool-chip">Web Scraping</span><span class="tool-chip">n8n</span></div>
+              </div>
+            </div>
+            <div class="day-item">
+              <span class="day-num">Day 5</span>
+              <div class="day-info">
+                <h4>Lusha + Waterfall Enrichment</h4>
+                <p>Lusha for direct dials and verified emails. Then waterfall enrichment: Apollo → Lusha → Apify, take the first valid hit. Deduplication, phone formatting, and data-quality scoring to achieve 85%+ hit rates.</p>
+                <div class="day-tools"><span class="tool-chip">Lusha</span><span class="tool-chip">Waterfall Logic</span><span class="tool-chip">Data Quality</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="phase-block phase-3">
+        <div class="phase-label">
+          <span class="phase-num">Phase 3</span>
+          <span class="phase-title-short">Signals & Analytics</span>
+          <span class="phase-days">Days 6–7</span>
+        </div>
+        <div class="phase-content">
+          <h3>Signals & Data Analytics</h3>
+          <div class="day-list">
+            <div class="day-item">
+              <span class="day-num">Day 6</span>
+              <div class="day-info">
+                <h4>News API + Trigger-Based Selling</h4>
+                <p>Monitor companies for buying signals — funding, expansion, hiring, leadership changes, product launches. AI node summarizes each hit into a one-line "why reach out now" and writes it onto the lead.</p>
+                <div class="day-tools"><span class="tool-chip">News API</span><span class="tool-chip">AI Summarization</span><span class="tool-chip">Signal Scoring</span></div>
+              </div>
+            </div>
+            <div class="day-item">
+              <span class="day-num">Day 7</span>
+              <div class="day-info">
+                <h4>Lead Scoring Model in NocoDB</h4>
+                <p>Fit score (ICP match) + Intent score (signals) = Priority (Hot/Warm/Cold). Segmentation, views, and data hygiene rules that keep the whole pipeline trustworthy.</p>
+                <div class="day-tools"><span class="tool-chip">NocoDB</span><span class="tool-chip">Lead Scoring</span><span class="tool-chip">Segmentation</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="phase-block phase-4">
+        <div class="phase-label">
+          <span class="phase-num">Phase 4</span>
+          <span class="phase-title-short">Dashboard</span>
+          <span class="phase-days">Day 8</span>
+        </div>
+        <div class="phase-content">
+          <h3>Sales Command Center</h3>
+          <div class="day-list">
+            <div class="day-item">
+              <span class="day-num">Day 8</span>
+              <div class="day-info">
+                <h4>The Live Sales Dashboard</h4>
+                <p>Build the command center: lead volume by source, enrichment hit-rate, signal counts, outreach sent/delivered, reply rate, meetings booked, conversion, and avg response time. n8n writes daily stats automatically. Options: NocoDB views or a custom HTML dashboard embedded in Chatwoot.</p>
+                <div class="day-tools"><span class="tool-chip">NocoDB Views</span><span class="tool-chip">Chatwoot</span><span class="tool-chip">Analytics</span><span class="tool-chip">n8n</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 5 -->
+      <div class="phase-block phase-5">
+        <div class="phase-label">
+          <span class="phase-num">Phase 5</span>
+          <span class="phase-title-short">Outreach</span>
+          <span class="phase-days">Days 9–11</span>
+        </div>
+        <div class="phase-content">
+          <h3>Multichannel Outreach</h3>
+          <div class="day-list">
+            <div class="day-item">
+              <span class="day-num">Day 9</span>
+              <div class="day-info">
+                <h4>WhatsApp Outreach at Scale</h4>
+                <p>Meta Cloud API, template categories and approval, bot/human handoff via Chatwoot, and safe bulk sending. Heavy compliance focus — a banned number kills the channel. Bot guards and opt-out handling built in.</p>
+                <div class="day-tools"><span class="tool-chip">WhatsApp API</span><span class="tool-chip">Meta Templates</span><span class="tool-chip">Chatwoot</span></div>
+              </div>
+            </div>
+            <div class="day-item">
+              <span class="day-num">Day 10</span>
+              <div class="day-info">
+                <h4>Email Outreach + Deliverability</h4>
+                <p>Sending via Resend/SMTP and — the part everyone skips — deliverability. SPF, DKIM, DMARC, domain warmup, spam-trigger avoidance, list hygiene. Without this, the whole pipeline lands in spam. A/B subject lines built in.</p>
+                <div class="day-tools"><span class="tool-chip">Resend</span><span class="tool-chip">SMTP</span><span class="tool-chip">SPF/DKIM/DMARC</span><span class="tool-chip">A/B Testing</span></div>
+              </div>
+            </div>
+            <div class="day-item">
+              <span class="day-num">Day 11</span>
+              <div class="day-info">
+                <h4>AI Personalization at Scale</h4>
+                <p>Combine enriched data + news signals + AI to generate genuinely tailored first lines — at volume, without sounding templated. Multichannel orchestration: WhatsApp and email sequenced intelligently per lead priority.</p>
+                <div class="day-tools"><span class="tool-chip">AI Personalization</span><span class="tool-chip">Multichannel</span><span class="tool-chip">n8n Orchestration</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 6 -->
+      <div class="phase-block phase-6">
+        <div class="phase-label">
+          <span class="phase-num">Phase 6</span>
+          <span class="phase-title-short">Follow-up</span>
+          <span class="phase-days">Days 12–13</span>
+        </div>
+        <div class="phase-content">
+          <h3>Follow-up & Conversion</h3>
+          <div class="day-list">
+            <div class="day-item">
+              <span class="day-num">Day 12</span>
+              <div class="day-info">
+                <h4>Automated Follow-up Engine</h4>
+                <p>Multi-step sequences with Wait nodes, branching on reply/no-reply/bounce, auto-updating lead status, and stopping the sequence the instant someone replies. Human handoff so reps take over cleanly with full context.</p>
+                <div class="day-tools"><span class="tool-chip">n8n Wait Nodes</span><span class="tool-chip">Sequence Logic</span><span class="tool-chip">CRM Updates</span></div>
+              </div>
+            </div>
+            <div class="day-item">
+              <span class="day-num">Day 13</span>
+              <div class="day-info">
+                <h4>AI Inbound + Meeting Booking Agent</h4>
+                <p>When a reply lands, an AI agent qualifies it, answers common questions, and books the meeting — or routes hot leads to a human with full pipeline context. State-machine pattern for clean handoffs.</p>
+                <div class="day-tools"><span class="tool-chip">AI Agent</span><span class="tool-chip">Cal.com / Calendly</span><span class="tool-chip">Chatwoot</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 7 -->
+      <div class="phase-block phase-7">
+        <div class="phase-label">
+          <span class="phase-num">Phase 7</span>
+          <span class="phase-title-short">Capstone</span>
+          <span class="phase-days">Day 14</span>
+        </div>
+        <div class="phase-content">
+          <h3>Capstone Build & Governance</h3>
+          <div class="day-list">
+            <div class="day-item">
+              <span class="day-num">Day 14</span>
+              <div class="day-info">
+                <h4>Full Pipeline Live Build + Handoff</h4>
+                <p>Each team builds the end-to-end flow live: scrape → enrich → signal-score → dashboard → outreach → follow-up → booking. Then the grown-up stuff: error handling, monitoring, compliance across UAE/India/EU, and a maintenance playbook so you own it after training ends.</p>
+                <div class="day-tools"><span class="tool-chip">End-to-End</span><span class="tool-chip">Error Handling</span><span class="tool-chip">Compliance</span><span class="tool-chip">Maintenance Guide</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ TOOLS STACK ═══════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow"><span class="badge">🛠 Tool Stack</span></div>
+      <h2 class="section-title">Every Tool You'll <span class="gradient-text">Master & Deploy</span></h2>
+      <p class="section-sub" style="margin:0 auto;">Hands-on with the exact stack used by high-performing sales teams across UAE, India, and global markets.</p>
+    </div>
+    <div class="tools-grid">
+      <div class="tool-card"><div class="tool-emoji">⚙️</div><div class="tool-name">n8n</div><div class="tool-cat">Automation</div></div>
+      <div class="tool-card"><div class="tool-emoji">🗄️</div><div class="tool-name">NocoDB</div><div class="tool-cat">CRM Database</div></div>
+      <div class="tool-card"><div class="tool-emoji">🚀</div><div class="tool-name">Apollo</div><div class="tool-cat">Lead Generation</div></div>
+      <div class="tool-card"><div class="tool-emoji">🕷️</div><div class="tool-name">Apify</div><div class="tool-cat">Web Scraping</div></div>
+      <div class="tool-card"><div class="tool-emoji">📞</div><div class="tool-name">Lusha</div><div class="tool-cat">Contact Enrichment</div></div>
+      <div class="tool-card"><div class="tool-emoji">📰</div><div class="tool-name">News API</div><div class="tool-cat">Signal Monitoring</div></div>
+      <div class="tool-card"><div class="tool-emoji">💬</div><div class="tool-name">WhatsApp API</div><div class="tool-cat">Outreach</div></div>
+      <div class="tool-card"><div class="tool-emoji">📧</div><div class="tool-name">Resend / SMTP</div><div class="tool-cat">Email Outreach</div></div>
+      <div class="tool-card"><div class="tool-emoji">🖥️</div><div class="tool-name">Chatwoot</div><div class="tool-cat">Inbox & Handoff</div></div>
+      <div class="tool-card"><div class="tool-emoji">🤖</div><div class="tool-name">AI / LLMs</div><div class="tool-cat">Personalization</div></div>
+      <div class="tool-card"><div class="tool-emoji">📅</div><div class="tool-name">Cal.com</div><div class="tool-cat">Booking</div></div>
+      <div class="tool-card"><div class="tool-emoji">📊</div><div class="tool-name">Dashboard</div><div class="tool-cat">Analytics</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ OUTCOMES ═══════════════ -->
+<section class="section outcomes-bg">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow"><span class="badge" style="background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.2);">✅ Learning Outcomes</span></div>
+      <h2 class="section-title" style="color:#fff;">What You Walk Away With</h2>
+      <p class="section-sub-white" style="margin:0 auto;">Not a certificate — a working pipeline, a maintained playbook, and the skills to evolve it independently.</p>
+    </div>
+    <div class="outcomes-grid">
+      <div class="outcome-item">
+        <div class="outcome-check"><svg width="14" height="14" fill="none" stroke="#fff" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+        <div>
+          <h4>A Live, Working Sales Pipeline</h4>
+          <p>Built on your own data, targeting your own ICP — not a template. Scraping, enriching, scoring, and sending from Day 1.</p>
+        </div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-check"><svg width="14" height="14" fill="none" stroke="#fff" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+        <div>
+          <h4>AI Personalization at Volume</h4>
+          <p>The skill to generate genuinely tailored outreach at scale — without sounding like a bot or spending hours per lead.</p>
+        </div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-check"><svg width="14" height="14" fill="none" stroke="#fff" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+        <div>
+          <h4>Signal-Based Timing Intelligence</h4>
+          <p>Know which prospects just hit a buying trigger and reach them before competitors. Funding rounds, expansions, hiring spikes.</p>
+        </div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-check"><svg width="14" height="14" fill="none" stroke="#fff" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+        <div>
+          <h4>WhatsApp + Email Compliance</h4>
+          <p>Meta template rules, SPF/DKIM/DMARC, warmup schedules — the infrastructure that keeps your channels alive and landing in inboxes.</p>
+        </div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-check"><svg width="14" height="14" fill="none" stroke="#fff" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+        <div>
+          <h4>Automated Follow-up & Booking</h4>
+          <p>Sequences that run themselves, qualify inbound replies, and book meetings — with clean human handoffs at the right moment.</p>
+        </div>
+      </div>
+      <div class="outcome-item">
+        <div class="outcome-check"><svg width="14" height="14" fill="none" stroke="#fff" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+        <div>
+          <h4>Maintenance Playbook + Governance</h4>
+          <p>Error handling, monitoring, data-protection law (UAE/India/EU), and a runbook so your team operates independently after training.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ WHO IS IT FOR ═══════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow"><span class="badge">👥 Who's This For</span></div>
+      <h2 class="section-title">Built For <span class="gradient-text">Revenue-Focused Teams</span></h2>
+      <p class="section-sub" style="margin:0 auto;">This is a builder's program. It delivers the most to teams who are ready to implement during the 14 days, not just watch.</p>
+    </div>
+    <div class="for-grid">
+      <div class="for-card">
+        <div class="for-icon">🏢</div>
+        <h3>Sales Teams & Managers</h3>
+        <p>Replace manual prospecting and follow-up with an AI pipeline your whole team operates from a single dashboard.</p>
+      </div>
+      <div class="for-card">
+        <div class="for-icon">📈</div>
+        <h3>Growth Ops & RevOps</h3>
+        <p>Build the infrastructure that makes sales scalable — enrichment waterfalls, signal monitoring, and automated sequences.</p>
+      </div>
+      <div class="for-card">
+        <div class="for-icon">🚀</div>
+        <h3>Founders & Business Owners</h3>
+        <p>Launch a cold outreach machine without hiring a full sales team. Your pipeline runs while you focus on closing.</p>
+      </div>
+      <div class="for-card">
+        <div class="for-icon">💡</div>
+        <h3>Marketing & Demand Gen</h3>
+        <p>Connect lead gen campaigns to automated nurture and booking flows — end-to-end, no dev dependency.</p>
+      </div>
+      <div class="for-card">
+        <div class="for-icon">🔧</div>
+        <h3>Automation Consultants</h3>
+        <p>Add a proven, client-ready sales automation stack to your service offering — built and documented in 14 days.</p>
+      </div>
+      <div class="for-card">
+        <div class="for-icon">🌍</div>
+        <h3>UAE · India · Global Markets</h3>
+        <p>Compliance, data rules, and channel norms across your key markets — built into the stack from Day 1, not bolted on.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ TRAINER ═══════════════ -->
+<section class="section-sm" style="background:var(--gray-50);">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow"><span class="badge">🏆 Your Trainer</span></div>
+      <h2 class="section-title">Backed by <span class="gradient-text">5 Years of AI for Sales</span></h2>
+    </div>
+    <div class="trainer-card">
+      <div class="trainer-logo-wrap">
+        <!-- Aiingo Logo Large -->
+        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" width="160" height="160">
+          <circle cx="60" cy="60" r="58" fill="#4a9ec4" stroke="#2176ae" stroke-width="2.5"/>
+          <circle cx="60" cy="60" r="44" fill="#d4eef8"/>
+          <path id="topArcL" d="M 18,58 A 42,42 0 0,1 102,58" fill="none"/>
+          <text font-size="8.5" font-weight="800" fill="#1a4a6e" font-family="Arial,sans-serif" letter-spacing="2">
+            <textPath href="#topArcL" startOffset="7%">AIINGO TECHNOLOGIES</textPath>
+          </text>
+          <path id="botArcL" d="M 16,66 A 44,44 0 0,0 104,66" fill="none"/>
+          <text font-size="7.5" font-weight="700" fill="#2176ae" font-family="Arial,sans-serif" letter-spacing="1">
+            <textPath href="#botArcL" startOffset="1%">REDEFINING BUSINESS WITH AI</textPath>
+          </text>
+          <text x="60" y="58" text-anchor="middle" font-size="16" font-weight="900" fill="#1a4a6e" font-family="Arial,sans-serif" letter-spacing="-0.5">aiingo</text>
+          <circle cx="94" cy="51" r="5" fill="#2176ae"/>
+          <circle cx="94" cy="51" r="3" fill="#5bb3d6"/>
+          <circle cx="15" cy="63" r="3.5" fill="#1a4a6e"/>
+          <circle cx="105" cy="63" r="3.5" fill="#1a4a6e"/>
+        </svg>
+      </div>
+      <div class="trainer-info">
+        <h2>Aiingo Technologies</h2>
+        <div class="trainer-exp">⭐ 5+ Years · AI for Sales & CRM</div>
+        <p>Aiingo has spent five years building AI-powered revenue systems for businesses across the UAE, India, and global markets. We don't just teach automation — we've built it, debugged it, sold with it, and maintained it across real pipelines with real quota pressure. Every lesson in this program comes from a live deployment, not a textbook.</p>
+        <p>Our speciality is the gap between "AI is interesting" and "AI is generating pipeline today." This training closes that gap in 14 days.</p>
+        <div class="trainer-stats">
+          <div>
+            <div class="t-stat-num">5+</div>
+            <div class="t-stat-lbl">Years Expertise</div>
+          </div>
+          <div>
+            <div class="t-stat-num">14</div>
+            <div class="t-stat-lbl">Day Program</div>
+          </div>
+          <div>
+            <div class="t-stat-num">3</div>
+            <div class="t-stat-lbl">Key Markets</div>
+          </div>
+          <div>
+            <div class="t-stat-num">100%</div>
+            <div class="t-stat-lbl">Build-Heavy</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PDF DOWNLOAD ═══════════════ -->
+<section class="section pdf-section" id="course-plan">
+  <div class="container">
+    <div class="pdf-card">
+      <div style="position:relative;z-index:1;">
+        <div style="margin-bottom:8px;">
+          <span style="background:rgba(245,158,11,.2);color:#fbbf24;font-size:12px;font-weight:700;padding:4px 12px;border-radius:50px;letter-spacing:.5px;">📄 FREE DOWNLOAD</span>
+        </div>
+        <h2>Download the Full 14-Day Course Plan</h2>
+        <p>Get the complete curriculum PDF — every day, every tool, every outcome — so you can present it to your team, manager, or clients.</p>
+        <div class="pdf-includes">
+          <div class="pdf-include-item">
+            <svg width="16" height="16" fill="none" stroke="#34d399" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+            Detailed day-by-day curriculum with learning objectives
+          </div>
+          <div class="pdf-include-item">
+            <svg width="16" height="16" fill="none" stroke="#34d399" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+            Full tool stack list with recommended plans &amp; pricing
+          </div>
+          <div class="pdf-include-item">
+            <svg width="16" height="16" fill="none" stroke="#34d399" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+            Pre-training checklist and technical requirements
+          </div>
+          <div class="pdf-include-item">
+            <svg width="16" height="16" fill="none" stroke="#34d399" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+            What you'll build on each day (hands-on deliverables)
+          </div>
+        </div>
+        <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="https://wa.me/919207444435?text=Hi%20Aiingo!%20Please%20send%20me%20the%2014-Day%20AI%20for%20Sales%20Training%20Course%20Plan%20PDF." target="_blank" rel="noopener" class="btn btn-pdf btn-lg">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+            Request PDF via WhatsApp
+          </a>
+          <a href="https://wa.me/919207444435?text=Hi%20Aiingo!%20I'm%20interested%20in%20the%2014-Day%20AI%20for%20Sales%20Training.%20Please%20share%20details%20and%20pricing." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enroll Now
+          </a>
+        </div>
+      </div>
+      <div class="pdf-visual">
+        <div class="pdf-icon-big">
+          <span>📄</span>
+          <small>PDF</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FAQ ═══════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow"><span class="badge">❓ FAQs</span></div>
+      <h2 class="section-title">Common <span class="gradient-text">Questions</span></h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do I need technical experience to attend?
+          <svg class="faq-chevron" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">No prior coding experience is required. n8n is a visual automation tool and all workflows are built step-by-step in the sessions. Comfort with spreadsheets and basic familiarity with sales tools (email, CRM) is sufficient. The program is deliberately hands-on so you learn by building, not watching.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Is this live or self-paced?
+          <svg class="faq-chevron" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">The program is designed as a live, build-alongside-the-trainer sprint — either in-person or virtual. This ensures you build YOUR real pipeline during the 14 days, not a generic demo. Contact us via WhatsApp to discuss scheduling options for your team.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What tools do I need to subscribe to before starting?
+          <svg class="faq-chevron" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">The course plan PDF includes a complete pre-training checklist with recommended plans and estimated costs for each tool (n8n Cloud or self-hosted, NocoDB, Apollo, Apify, Lusha, News API, Resend, WhatsApp Business API). Most tools have free tiers that cover the training period. We'll advise on the most cost-effective setup for your team size.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can this be run as a corporate training for my whole sales team?
+          <svg class="faq-chevron" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Yes — this is the ideal format. The program works best as a done-with-you sprint where we build your team's real pipeline alongside the training. This means by Day 14, your team has a live system targeting your actual ICP, not a classroom exercise. Corporate pricing and custom scheduling available — reach out on WhatsApp.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Which markets/regions does the compliance training cover?
+          <svg class="faq-chevron" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Compliance is covered specifically for the UAE (TDRA and data protection regulations), India (DPDP Act, TRAI), and EU/GDPR for teams reaching into European markets. WhatsApp and email rules are covered across all three. Scraping ToS guidance covers the major data sources used in the program.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What happens after the 14 days — do I get ongoing support?
+          <svg class="faq-chevron" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Day 14 includes a maintenance playbook specifically designed so your team operates independently. Aiingo also offers post-training retainer packages for ongoing pipeline optimization, new signal integrations, and workflow upgrades. Ask about this when you enroll.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CTA FINAL ═══════════════ -->
+<section class="cta-final">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="section-eyebrow" style="margin-bottom:16px;"><span class="badge" style="background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.2);">🚀 Ready to Start?</span></div>
+    <h2>Build Your AI Sales Pipeline.<br>Start in 14 Days.</h2>
+    <p>Message us on WhatsApp and we'll send you the course plan PDF, answer your questions, and schedule your team's sprint.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/919207444435?text=Hi%20Aiingo!%20I'm%20interested%20in%20the%2014-Day%20AI%20for%20Sales%20Training%20Program.%20Please%20share%20details%20and%20pricing." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat on WhatsApp — +91 9207 444 435
+      </a>
+      <a href="#course-plan" class="btn btn-pdf btn-lg">
+        ⬇ Get Course Plan PDF
+      </a>
+    </div>
+    <p style="margin-top:24px;font-size:13px;color:rgba(255,255,255,.4);">Aiingo Technologies · AI for Sales & CRM · UAE · India · Global</p>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">
+      <svg width="36" height="36" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="60" r="58" fill="#4a9ec4"/>
+        <circle cx="60" cy="60" r="44" fill="#d4eef8"/>
+        <text x="60" y="66" text-anchor="middle" font-size="18" font-weight="900" fill="#1a4a6e" font-family="Arial,sans-serif">aiingo</text>
+      </svg>
+      <span style="color:rgba(255,255,255,.7);font-weight:700;font-size:15px;">Aiingo Technologies</span>
+    </div>
+    <p>© 2025 Aiingo Technologies. All rights reserved.</p>
+    <p style="margin-top:6px;">
+      AI for Sales &amp; CRM · 5+ Years Expertise ·
+      <a href="https://wa.me/919207444435" target="_blank" rel="noopener">+91 9207 444 435</a>
+    </p>
+  </div>
+</footer>
+
+<!-- ═══════════════ FLOATING WA BUTTON ═══════════════ -->
+<a href="https://wa.me/919207444435?text=Hi%20Aiingo!%20I'm%20interested%20in%20the%2014-Day%20AI%20for%20Sales%20Training%20Program." target="_blank" rel="noopener" class="wa-float" title="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+
+  // Intersection observer for subtle fade-in
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.overview-card, .for-card, .tool-card, .outcome-item, .day-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(18px)';
+    el.style.transition = 'opacity .4s ease, transform .4s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
