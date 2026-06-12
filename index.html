@@ -294,6 +294,61 @@
     /* ── COUNTER ANIMATION ── */
     .count-num{display:inline-block}
 
+    /* ── PAIN SECTION ── */
+    .pain-section{background:linear-gradient(180deg,#060e1a 0%,#0d1f35 100%);color:#fff;position:relative;overflow:hidden}
+    .pain-section::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(239,68,68,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(239,68,68,.03) 1px,transparent 1px);background-size:50px 50px;pointer-events:none}
+    .pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:0}
+    @media(max-width:700px){.pain-grid{grid-template-columns:1fr}}
+    .pain-card{border-radius:18px;overflow:hidden;border:1px solid rgba(239,68,68,.15);transition:all .3s ease}
+    .pain-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.3)}
+    .pain-top{background:rgba(239,68,68,.08);padding:20px 22px;border-bottom:1px solid rgba(239,68,68,.12)}
+    .pain-emoji{font-size:28px;margin-bottom:10px}
+    .pain-label{font-size:10px;font-weight:800;letter-spacing:1.2px;color:rgba(239,68,68,.8);text-transform:uppercase;margin-bottom:6px}
+    .pain-title{font-size:16px;font-weight:800;color:#fff;line-height:1.3}
+    .pain-quote{font-size:13px;color:rgba(255,255,255,.5);margin-top:6px;font-style:italic}
+    .fix-bottom{background:rgba(52,211,153,.06);padding:18px 22px;border-top:1px solid rgba(52,211,153,.12)}
+    .fix-label{font-size:10px;font-weight:800;letter-spacing:1.2px;color:#34d399;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+    .fix-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:6px}
+    .fix-tools{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+    .fix-chip{font-size:11px;font-weight:700;padding:3px 10px;border-radius:50px;background:rgba(52,211,153,.15);color:#6ee7b7;border:1px solid rgba(52,211,153,.2)}
+    .fix-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.5}
+
+    /* ── MOBILE APP STYLES ── */
+    .mobile-sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;background:rgba(6,14,26,.97);backdrop-filter:blur(20px);border-top:1px solid rgba(56,189,248,.15);padding:12px 16px 18px;padding-bottom:max(18px,env(safe-area-inset-bottom))}
+    .mobile-sticky-inner{display:flex;gap:10px;align-items:center}
+    .mobile-sticky-cta .btn{flex:1;font-size:14px;padding:13px 16px;border-radius:14px}
+    .mobile-urgency{text-align:center;font-size:11px;color:rgba(255,255,255,.45);margin-bottom:8px;font-weight:600;letter-spacing:.3px}
+    @media(max-width:768px){
+      .mobile-sticky-cta{display:block}
+      body{padding-bottom:90px}
+      .wa-float{display:none}
+      .hero{padding:70px 0 60px;min-height:auto}
+      .hero-left h1{font-size:30px}
+      .hero-sub{font-size:15px}
+      .hero-stats{gap:0;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}
+      .hero-stat{padding:0 16px;flex-shrink:0}
+      .hero-stat-num{font-size:26px}
+      .hero-ctas{flex-direction:column}
+      .hero-ctas .btn{width:100%;justify-content:center}
+      .hero-ctas .btn-lg{padding:16px 24px;font-size:15px}
+      .pain-grid{grid-template-columns:1fr}
+      .sec-title{font-size:26px}
+      .trainer-card{padding:28px 20px}
+      .trainer-stats{gap:24px}
+      .pdf-card{padding:30px 22px}
+      .pdf-card h2{font-size:22px}
+      nav .btn-outline{display:none}
+      .overview-grid{grid-template-columns:1fr}
+      .for-grid{grid-template-columns:1fr}
+      .outcomes-grid{grid-template-columns:1fr}
+      .phase-grid{grid-template-columns:1fr}
+      .phase-sidebar{padding:18px 20px;flex-direction:row;justify-content:flex-start;text-align:left;gap:10px;align-items:center}
+      .tools-grid{grid-template-columns:repeat(3,1fr);gap:10px}
+      .tool-card{padding:16px 10px}
+      .tool-emoji{font-size:24px}
+      .tool-name{font-size:12px}
+      .tool-cat{font-size:10px}
+    }
     @media(max-width:480px){.section{padding:64px 0}.btn-lg{padding:16px 30px;font-size:15px}}
   </style>
 </head>
@@ -348,10 +403,10 @@
           <span class="badge badge-dark">⚡ Build-Heavy · 14 Days</span>
         </div>
         <h1>
-          Master AI-Powered
-          <span class="line2">Sales in 14 Days</span>
+          Stop Losing Deals to
+          <span class="line2">Manual Sales Work</span>
         </h1>
-        <p class="hero-sub">Go from zero to a fully automated sales pipeline — lead generation, enrichment, signals, AI outreach, follow-up, and booking — all built live, not just explained.</p>
+        <p class="hero-sub">Your competitors are automating prospecting, follow-ups, and booking with AI. In 14 days, you'll have the exact same pipeline — built live, running on your own data.</p>
         <div class="hero-stats">
           <div class="hero-stat"><div class="hero-stat-num count-num" data-target="14">0</div><div class="hero-stat-lbl">Training Days</div></div>
           <div class="hero-stat"><div class="hero-stat-num count-num" data-target="7">0</div><div class="hero-stat-lbl">Phases</div></div>
@@ -409,6 +464,117 @@
     <span class="marquee-item"><span class="marquee-dot"></span>AI Personalization at Scale</span>
   </div>
 </div>
+
+<!-- ═══════════ PAIN → AI FIX ═══════════ -->
+<section class="section pain-section">
+  <div class="container">
+    <div class="sec-head reveal" style="margin-bottom:48px">
+      <span class="badge" style="background:rgba(239,68,68,.15);color:#fca5a5;border-color:rgba(239,68,68,.25)">😤 Sound Familiar?</span>
+      <h2 class="sec-title" style="color:#fff;margin-top:14px">The Pains Killing Your<br><span style="background:linear-gradient(135deg,#f87171,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Sales Team Right Now</span></h2>
+      <p class="sec-sub-white">Every pain below has a direct fix built into the 14-day program. This isn't a course about AI — it's a cure for what's hurting your numbers.</p>
+    </div>
+    <div class="pain-grid">
+
+      <div class="pain-card reveal stagger-1">
+        <div class="pain-top">
+          <div class="pain-emoji">⏳</div>
+          <div class="pain-label">Pain #1 — Time Drain</div>
+          <div class="pain-title">Your reps spend 4+ hours a day copy-pasting contacts, sending manual follow-ups, and updating the CRM</div>
+          <div class="pain-quote">"We close deals, not spreadsheets — but half our day is spreadsheets."</div>
+        </div>
+        <div class="fix-bottom">
+          <div class="fix-label"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> AI Fix from Syllabus</div>
+          <div class="fix-title">n8n automation handles data entry, CRM updates, and follow-up sequences 24/7</div>
+          <div class="fix-desc">Day 2 you build the backbone. By Day 12 your follow-up engine runs without anyone touching it.</div>
+          <div class="fix-tools"><span class="fix-chip">n8n</span><span class="fix-chip">NocoDB</span><span class="fix-chip">Auto Follow-up</span></div>
+        </div>
+      </div>
+
+      <div class="pain-card reveal stagger-2">
+        <div class="pain-top">
+          <div class="pain-emoji">🎯</div>
+          <div class="pain-label">Pain #2 — Wrong Leads</div>
+          <div class="pain-title">You're chasing leads who will never buy — built lists from scraped data, no fit scoring, no intent signal</div>
+          <div class="pain-quote">"Our pipeline looks full but nothing converts. We don't know who's actually ready."</div>
+        </div>
+        <div class="fix-bottom">
+          <div class="fix-label"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> AI Fix from Syllabus</div>
+          <div class="fix-title">ICP-matched lead scoring with Fit + Intent = Hot/Warm/Cold priority queue</div>
+          <div class="fix-desc">Days 1, 6 & 7 build your ICP model, signal monitoring, and auto-scoring so reps only call Hot leads.</div>
+          <div class="fix-tools"><span class="fix-chip">Apollo</span><span class="fix-chip">News API</span><span class="fix-chip">Lead Scoring</span></div>
+        </div>
+      </div>
+
+      <div class="pain-card reveal stagger-3">
+        <div class="pain-top">
+          <div class="pain-emoji">📬</div>
+          <div class="pain-label">Pain #3 — Nobody Replies</div>
+          <div class="pain-title">Outreach goes to spam or gets ignored — generic templates, bad timing, zero personalization</div>
+          <div class="pain-quote">"We send 200 emails a day. We get 2 replies. Something is broken."</div>
+        </div>
+        <div class="fix-bottom">
+          <div class="fix-label"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> AI Fix from Syllabus</div>
+          <div class="fix-title">AI-personalized first lines + SPF/DKIM/DMARC warmup + signal-timed sending</div>
+          <div class="fix-desc">Days 10 & 11 fix deliverability and inject AI personalization — each message feels handwritten, at scale.</div>
+          <div class="fix-tools"><span class="fix-chip">AI Personalization</span><span class="fix-chip">Resend</span><span class="fix-chip">Deliverability</span></div>
+        </div>
+      </div>
+
+      <div class="pain-card reveal stagger-4">
+        <div class="pain-top">
+          <div class="pain-emoji">🔕</div>
+          <div class="pain-label">Pain #4 — Leads Go Cold</div>
+          <div class="pain-title">Hot leads go cold because nobody followed up on time — reps forgot, were busy, or didn't know who to call</div>
+          <div class="pain-quote">"We lost a ₹40L deal because we didn't follow up for 8 days. The competitor did."</div>
+        </div>
+        <div class="fix-bottom">
+          <div class="fix-label"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> AI Fix from Syllabus</div>
+          <div class="fix-title">Automated multi-step follow-up that never sleeps — stops the instant they reply</div>
+          <div class="fix-desc">Day 12 builds the follow-up engine with Wait nodes, branching logic, and instant human handoff.</div>
+          <div class="fix-tools"><span class="fix-chip">n8n Wait Nodes</span><span class="fix-chip">WhatsApp</span><span class="fix-chip">Email Sequences</span></div>
+        </div>
+      </div>
+
+      <div class="pain-card reveal stagger-1">
+        <div class="pain-top">
+          <div class="pain-emoji">🕵️</div>
+          <div class="pain-label">Pain #5 — No Visibility</div>
+          <div class="pain-title">Management has no idea what's happening in the pipeline — no live data, no rep accountability, gut-feel forecasting</div>
+          <div class="pain-quote">"I ask for a pipeline update and it takes 2 days and 3 Zoom calls to get the real picture."</div>
+        </div>
+        <div class="fix-bottom">
+          <div class="fix-label"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> AI Fix from Syllabus</div>
+          <div class="fix-title">Live sales dashboard auto-updated by n8n — reply rates, meetings booked, conversion, response time</div>
+          <div class="fix-desc">Day 8 builds the command center. One screen your team and your boss trust — no manual reports.</div>
+          <div class="fix-tools"><span class="fix-chip">NocoDB Dashboard</span><span class="fix-chip">n8n Stats</span><span class="fix-chip">Chatwoot</span></div>
+        </div>
+      </div>
+
+      <div class="pain-card reveal stagger-2">
+        <div class="pain-top">
+          <div class="pain-emoji">📞</div>
+          <div class="pain-label">Pain #6 — Bad Contact Data</div>
+          <div class="pain-title">40–60% of your contact list bounces — wrong numbers, dead emails, outdated LinkedIn data</div>
+          <div class="pain-quote">"We paid for a list of 5,000 leads. Maybe 1,800 were reachable. Complete waste."</div>
+        </div>
+        <div class="fix-bottom">
+          <div class="fix-label"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> AI Fix from Syllabus</div>
+          <div class="fix-title">Waterfall enrichment: Apollo → Lusha → Apify — 85%+ verified contact hit rate</div>
+          <div class="fix-desc">Day 5 builds the enrichment cascade so you never send to a dead address again. Quality-scored before sending.</div>
+          <div class="fix-tools"><span class="fix-chip">Apollo</span><span class="fix-chip">Lusha</span><span class="fix-chip">Apify</span><span class="fix-chip">Deduplication</span></div>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:48px" class="reveal">
+      <p style="font-size:16px;color:rgba(255,255,255,.55);margin-bottom:20px">Every one of these is fixed — live — inside the 14 days.</p>
+      <a href="https://wa.me/919207444435?text=Hi%20Aiingo!%20I%27m%20ready%20to%20fix%20my%20sales%20pipeline.%20Tell%20me%20about%20the%2014-Day%20Training." target="_blank" rel="noopener" class="btn btn-wa btn-lg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        I'm Ready — Fix My Pipeline
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- ═══════════ WHAT YOU'LL BUILD ═══════════ -->
 <section class="section">
@@ -725,6 +891,18 @@
   <span class="wa-tooltip">Chat with us!</span>
   <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
+
+<!-- ═══════════ MOBILE STICKY CTA ═══════════ -->
+<div class="mobile-sticky-cta">
+  <div class="mobile-urgency">🔥 Limited cohort seats — message us now</div>
+  <div class="mobile-sticky-inner">
+    <a href="https://wa.me/919207444435?text=Hi%20Aiingo!%20I%27m%20interested%20in%20the%2014-Day%20AI%20for%20Sales%20Training." target="_blank" rel="noopener" class="btn btn-wa">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Enroll Now
+    </a>
+    <button onclick="downloadPDF()" class="btn btn-gold">⬇ PDF</button>
+  </div>
+</div>
 
 <script>
 /* ── Particles ── */
